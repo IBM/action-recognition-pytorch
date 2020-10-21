@@ -95,17 +95,21 @@ def main_worker(gpu, ngpus_per_node, args):
     model = model.cuda(args.gpu)
     model.eval()
 
-    if args.threed_data:
-        dummy_data = (args.input_channels, args.groups, args.input_size, args.input_size)
-    else:
-        dummy_data = (args.input_channels * args.groups, args.input_size, args.input_size)
-
-    if args.rank == 0:
-        torch.cuda.empty_cache()
-
-    if args.show_model and args.rank == 0:
-        print(model)
+    if args.show_model:
+        if args.rank == 0:
+            print(model)
         return 0
+
+    if args.pretrained is not None:
+        if args.rank == 0:
+            print("=> using pre-trained model '{}'".format(arch_name))
+        checkpoint = torch.load(args.pretrained, map_location='cpu')
+        model.load_state_dict(checkpoint['state_dict'], strict=False)
+        del checkpoint  # dereference seems crucial
+        torch.cuda.empty_cache()
+    else:
+        if args.rank == 0:
+            print("=> creating model '{}'".format(arch_name))
 
     if args.distributed:
         # For multiprocessing distributed, DistributedDataParallel constructor
@@ -139,20 +143,6 @@ def main_worker(gpu, ngpus_per_node, args):
         # assign rank to 0
         model = torch.nn.DataParallel(model).cuda()
         args.rank = 0
-
-    if args.pretrained is not None:
-        if args.rank == 0:
-            print("=> using pre-trained model '{}'".format(arch_name))
-        if args.gpu is None:
-            checkpoint = torch.load(args.pretrained, map_location='cpu')
-        else:
-            checkpoint = torch.load(args.pretrained, map_location='cuda:{}'.format(args.gpu))
-        model.load_state_dict(checkpoint['state_dict'], strict=False)
-        del checkpoint  # dereference seems crucial
-        torch.cuda.empty_cache()
-    else:
-        if args.rank == 0:
-            print("=> creating model '{}'".format(arch_name))
 
     # define loss function (criterion) and optimizer
     train_criterion = nn.CrossEntropyLoss().cuda(args.gpu)
