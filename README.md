@@ -2,7 +2,6 @@
 
 This repository contains a general implementation of 6 representative 2D and 3D approaches for action recognition including I3D [1], ResNet3D [2], S3D [3], R(2+1)D [4], TSN [5] and TAM [6]. 
 
-Results of mini-datasets and full-datasets can be found at [mini-datasets](./benchmark_mini.md) and [full-datasets](./benchmark_full.md). The trained models will be released soon.
 
 ```
 1. Joao Carreira and Andrew Zisserman. Quo vadis, action recognition? a new model and the kinetics dataset. In proceedings
@@ -91,3 +90,39 @@ python3 test.py --datadir /path/to/folder --threed_data \
 --logdir snapshots/ --lr 0.01 --backbone_net i3d -b 64 -j 64 \
 -e --pretrained /path/to/file --num_clips 3 --num_crops 3
 ```
+
+
+## Models and Results
+
+We provided some pretrained models with `32` frames as input without temporal pooling.
+Those models can be evaluated with following command template, and appending additional configs.
+
+### Kinetics400
+```bash
+python3 test.py --groups 32 -e --frames_per_group 2 --without_t_stride --logdir logs/ --dataset kinetics400 \
+--num_crops 3 --num_clips 10 --input_size 256 --disable_scaleup -b 6 -j 24 --dense_sampling \  
+--datadir /path/to/dataset \
+--pretrained /path/to/pretrained_model
+```
+
+| Model | Top-1 Acc | Additional configs | 
+|-------|-----------| --- |
+| [I3D-ResNet-50-f32](https://ibm.box.com/v/K400-I3D-ResNet-50-f32) | 76.61 | --backbone_net i3d_resnet -d 50 | 
+| [TAM-ResNet-50-f32](https://ibm.box.com/v/K400-TAM-ResNet-50-f32) | 76.18 | --backbone_net resnet -d 50 --temporal_module_name TAM |
+| [I3D-ResNet-101-f32](https://ibm.box.com/v/K400-I3D-ResNet-101-f32) | 77.80 | --backbone_net i3d_resnet -d 101 |
+| [TAM-ResNet-101-f32](https://ibm.box.com/v/K400-TAM-ResNet-101-f32) | 77.61 | --backbone_net resnet -d 101 --temporal_module_name TAM |
+
+### Something-Something-V2
+```bash
+python3 test.py --groups 32 -e --frames_per_group 1 --without_t_stride --logdir logs/ --dataset st2stv2 \
+--num_crops 3 --num_clips 2 --input_size 256 --disable_scaleup -b 6 -j 24  \  
+--datadir /path/to/dataset \
+--pretrained /path/to/pretrained_model
+```
+
+| Model | Top-1 Acc | Additional configs |
+|-------|-----------|--|
+| [I3D-ResNet-50-f32](https://ibm.box.com/v/SSV2-I3D-ResNet-50-f32) | 76.61 | --backbone_net i3d_resnet -d 50 |
+| [TAM-ResNet-50-f32](https://ibm.box.com/v/SSV2-TAM-ResNet-50-f32) | 76.18 | --backbone_net resnet -d 50 --temporal_module_name TAM |
+
+
