@@ -126,3 +126,5 @@ python3 test.py --groups 32 -e --frames_per_group 1 --without_t_stride --logdir 
 | [TAM-ResNet-50-f32](https://ibm.box.com/v/SSV2-TAM-ResNet-50-f32) | 76.18 | --backbone_net resnet -d 50 --temporal_module_name TAM |
 
 
+### Results on Mini-Datasets
+See [benchmark_mini.md](./benchmark_mini.md)
