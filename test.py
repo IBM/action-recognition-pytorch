@@ -85,13 +85,14 @@ def main():
     model = model.cuda()
     model.eval()
 
-    model = torch.nn.DataParallel(model).cuda()
     if args.pretrained is not None:
         print("=> using pre-trained model '{}'".format(arch_name))
-        checkpoint = torch.load(args.pretrained)
+        checkpoint = torch.load(args.pretrained, map_location='cpu')
         model.load_state_dict(checkpoint['state_dict'])
     else:
         print("=> creating model '{}'".format(arch_name))
+
+    model = torch.nn.DataParallel(model).cuda()
 
     # augmentor
     if args.disable_scaleup:
@@ -156,7 +157,7 @@ def main():
     with torch.no_grad(), tqdm(total=total_batches) as t_bar:
         end = time.time()
         for i, (video, label) in enumerate(data_loader):
-            output = eval_a_batch(video, model, args.input_channels, num_crops=args.num_crops,
+            output = eval_a_batch(video, model, num_clips=args.num_clips, num_crops=args.num_crops,
                                   threed_data=args.threed_data)
             if args.evaluate:
                 label = label.cuda(non_blocking=True)

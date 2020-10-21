@@ -95,11 +95,9 @@ def main_worker(gpu, ngpus_per_node, args):
     model = model.cuda(args.gpu)
     model.eval()
 
-    if args.rank == 0:
-        torch.cuda.empty_cache()
-
-    if args.show_model and args.rank == 0:
-        print(model)
+    if args.show_model:
+        if args.rank == 0:
+            print(model)
         return 0
 
     if args.pretrained is not None:

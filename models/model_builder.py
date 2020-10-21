@@ -1,11 +1,10 @@
-from . import s3d, i3d, s3d_resnet, i3d_resnet, resnet, inception_v1, s3d_resnet_tam
+from . import s3d, i3d, s3d_resnet, i3d_resnet, resnet, inception_v1
 
 
 MODEL_TABLE = {
     's3d': s3d,
     'i3d': i3d,
     's3d_resnet': s3d_resnet,
-    's3d_resnet_tam': s3d_resnet_tam,
     'i3d_resnet': i3d_resnet,
     'resnet': resnet,
     'inception_v1': inception_v1

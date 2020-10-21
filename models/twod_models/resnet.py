@@ -59,13 +59,7 @@ class BasicBlock(nn.Module):
         out = self.bn2(out)
 
         if self.downsample is not None:
-            if self.tam is not None:
-                if 'TSM' in self.tam.name():
-                    identity = self.downsample(identity)
-                else:
-                    identity = self.downsample(x)
-            else:
-                identity = self.downsample(x)
+            identity = self.downsample(identity)
 
         out += identity
         out = self.relu(out)
@@ -108,14 +102,8 @@ class Bottleneck(nn.Module):
         out = self.bn3(out)
 
         if self.downsample is not None:
-            if self.tam is not None:
-                if 'TSM' in self.tam.name():
-                    identity = self.downsample(identity)
-                else:
-                    identity = self.downsample(x)
-            else:
-                identity = self.downsample(x)
-
+            identity = self.downsample(identity)
+            
         out += identity
         out = self.relu(out)
 
@@ -143,7 +131,6 @@ class ResNet(nn.Module):
         self.orig_num_frames = num_frames
         self.num_classes = num_classes
         self.without_t_stride = without_t_stride
-        self.fpn_dim = fpn_dim
 
         self.inplanes = 64
         self.conv1 = nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False)
