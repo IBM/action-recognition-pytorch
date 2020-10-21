@@ -97,10 +97,12 @@ python3 test.py --datadir /path/to/folder --threed_data \
 We provided some pretrained models with `32` frames as input without temporal pooling.
 Those models can be evaluated with following command template, and appending additional configs.
 
+Note: you might need to change batch size based on your GPU memory.
+
 ### Kinetics400
 ```bash
 python3 test.py --groups 32 -e --frames_per_group 2 --without_t_stride --logdir logs/ --dataset kinetics400 \
---num_crops 3 --num_clips 10 --input_size 256 --disable_scaleup -b 6 -j 24 --dense_sampling \  
+--num_crops 3 --num_clips 10 --input_size 256 --disable_scaleup -b 6 -j 24 --dense_sampling \
 --datadir /path/to/dataset \
 --pretrained /path/to/pretrained_model
 ```
@@ -115,7 +117,7 @@ python3 test.py --groups 32 -e --frames_per_group 2 --without_t_stride --logdir 
 ### Something-Something-V2
 ```bash
 python3 test.py --groups 32 -e --frames_per_group 1 --without_t_stride --logdir logs/ --dataset st2stv2 \
---num_crops 3 --num_clips 2 --input_size 256 --disable_scaleup -b 6 -j 24  \  
+--num_crops 3 --num_clips 2 --input_size 256 --disable_scaleup -b 6 -j 24  \
 --datadir /path/to/dataset \
 --pretrained /path/to/pretrained_model
 ```
