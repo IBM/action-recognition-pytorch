@@ -124,8 +124,8 @@ python3 test.py --groups 32 -e --frames_per_group 1 --without_t_stride --logdir 
 
 | Model | Top-1 Acc | Additional configs |
 |-------|-----------|--|
-| [I3D-ResNet-50-f32](https://ibm.box.com/v/SSV2-I3D-ResNet-50-f32) | 76.61% | --backbone_net i3d_resnet -d 50 |
-| [TAM-ResNet-50-f32](https://ibm.box.com/v/SSV2-TAM-ResNet-50-f32) | 76.18% | --backbone_net resnet -d 50 --temporal_module_name TAM |
+| [I3D-ResNet-50-f32](https://ibm.box.com/v/SSV2-I3D-ResNet-50-f32) | 62.84% | --backbone_net i3d_resnet -d 50 |
+| [TAM-ResNet-50-f32](https://ibm.box.com/v/SSV2-TAM-ResNet-50-f32) | 63.83% | --backbone_net resnet -d 50 --temporal_module_name TAM |
 
 
 ### Results on Mini-Datasets
