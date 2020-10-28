@@ -1,9 +1,25 @@
 # Action Recognition Study
 
-This repository contains a general implementation of 6 representative 2D and 3D approaches for action recognition including I3D [1], ResNet3D [2], S3D [3], R(2+1)D [4], TSN [5] and TAM [6]. 
+This repository contains a general implementation of 6 representative 2D and 3D approaches for action recognition including I3D [1], ResNet3D [2], S3D [3], R(2+1)D [4], TSN [5] and TAM [6].
+And the codes are used for our analysis on action recognition.
+
+Chun-Fu Chen, Rameswar Panda, Kandan Ramakrishnan, Rogerio Feris, John Cohn, Aude Oliva and Quanfu Fan, "Deep Analysis of CNN-based Spatio-temporal Representations for Action Recognition".
+
+If you use the codes and models from this repo, please cite our work. Thanks!
+
+```
+@article{chen2020deep,
+  title={Deep Analysis of CNN-based Spatio-temporal Representations for Action Recognition},
+  author={Chen, Chun-Fu and Panda, Rameswar and Ramakrishnan, Kandan and Feris, Rogerio and Cohn, John and Oliva, Aude and Fan, Quanfu},
+  journal={arXiv preprint arXiv:2010.11757},
+  year={2020}
+}
+```
 
 
 ```
+Reference
+
 1. Joao Carreira and Andrew Zisserman. Quo vadis, action recognition? a new model and the kinetics dataset. In proceedings
 of the IEEE Conference on Computer Vision and Pattern Recognition, pages 6299–6308, 2017
 
