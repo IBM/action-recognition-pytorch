@@ -3,7 +3,8 @@
 This repository contains a general implementation of 6 representative 2D and 3D approaches for action recognition including I3D [1], ResNet3D [2], S3D [3], R(2+1)D [4], TSN [5] and TAM [6].
 And the codes are used for our analysis on action recognition.
 
-Chun-Fu Chen, Rameswar Panda, Kandan Ramakrishnan, Rogerio Feris, John Cohn, Aude Oliva and Quanfu Fan, "Deep Analysis of CNN-based Spatio-temporal Representations for Action Recognition".
+Chun-Fu (Richard) Chen*, Rameswar Panda*, Kandan Ramakrishnan, Rogerio Feris, John Cohn, Aude Oliva and Quanfu Fan*, "Deep Analysis of CNN-based Spatio-temporal Representations for Action Recognition".  
+*: Equal contributions
 
 If you use the codes and models from this repo, please cite our work. Thanks!
 
