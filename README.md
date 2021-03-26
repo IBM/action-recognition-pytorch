@@ -8,41 +8,17 @@ Chun-Fu Chen, Rameswar Panda, Kandan Ramakrishnan, Rogerio Feris, John Cohn, Aud
 If you use the codes and models from this repo, please cite our work. Thanks!
 
 ```
-@article{chen2020deep,
-  title={Deep Analysis of CNN-based Spatio-temporal Representations for Action Recognition},
-  author={Chen, Chun-Fu and Panda, Rameswar and Ramakrishnan, Kandan and Feris, Rogerio and Cohn, John and Oliva, Aude and Fan, Quanfu},
-  journal={arXiv preprint arXiv:2010.11757},
-  year={2020}
+@inproceedings{chen2020deep,
+    title={Deep Analysis of CNN-based Spatio-temporal Representations for Action Recognition},
+    author={Chen, Chun-Fu and Panda, Rameswar and Ramakrishnan, Kandan and Feris, Rogerio and Cohn, John and Oliva, Aude and Fan, Quanfu},
+    booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+    year = {2021},
+    month = jun
 }
 ```
 
 
-```
-Reference
-
-1. Joao Carreira and Andrew Zisserman. Quo vadis, action recognition? a new model and the kinetics dataset. In proceedings
-of the IEEE Conference on Computer Vision and Pattern Recognition, pages 6299–6308, 2017
-
-2. Kensho Hara, Hirokatsu Kataoka, and Yutaka Satoh. Can Spatiotemporal 3D CNNs Retrace the History of 2D CNNs
-and ImageNet? In The IEEE Conference on Computer Vision and Pattern Recognition (CVPR), June 2018.
-
-3. Saining Xie, Chen Sun, Jonathan Huang, Zhuowen Tu, and Kevin Murphy. Rethinking Spatiotemporal Feature Learning:
-Speed-Accuracy Trade-offs in Video Classification. In The European Conference on Computer Vision (ECCV),
-Sept. 2018
-
-4. Du Tran, Heng Wang, Lorenzo Torresani, Jamie Ray, Yann LeCun, and Manohar Paluri. A Closer Look at Spatiotemporal
-Convolutions for Action Recognition. In The IEEE Conference on Computer Vision and Pattern Recognition (CVPR), June 2018
-
-5. Ji Lin, Chuang Gan, and Song Han. Temporal Shift Module for Efficient Video Understanding. In The IEEE International
-Conference on Computer Vision (ICCV), 2019
-
-6. Quanfu Fan, Chun-Fu (Ricarhd) Chen, Hilde Kuehne, Marco Pistoia, and David Cox. More Is Less: Learning Efficient
-Video Representations by Temporal Aggregation Modules. In Advances in Neural Information Processing Systems 33,
-2019.
-```
-
 ## Requirements
-
 ```
 pip install -r requirement.txt
 ```
@@ -76,6 +52,8 @@ After that, you need to update the `utils/data_config.py` for the datasets accor
 
 We provided three scripts in the `tools` folder to help convert some datasets but the details in the scripts must be set accordingly. E.g., the path to videos.
 
+## Mini-datasets
+Please find [mini_ssv2](mini_ssv2.txt) and [mini_kinetics400](mini_kinetics400.txt) for the used classes.
 
 ## Training and Evaluation
 The `opts.py` illustrates the available options for training 2D and 3D models. Some options are only for 2D models or 3D models.
@@ -148,3 +126,27 @@ python3 test.py --groups 32 -e --frames_per_group 1 --without_t_stride --logdir 
 
 ### Results on Mini-Datasets
 See [benchmark_mini.md](./benchmark_mini.md)
+
+
+
+## Reference
+
+1. Joao Carreira and Andrew Zisserman. Quo vadis, action recognition? a new model and the kinetics dataset. In proceedings
+of the IEEE Conference on Computer Vision and Pattern Recognition, pages 6299–6308, 2017
+
+2. Kensho Hara, Hirokatsu Kataoka, and Yutaka Satoh. Can Spatiotemporal 3D CNNs Retrace the History of 2D CNNs
+and ImageNet? In The IEEE Conference on Computer Vision and Pattern Recognition (CVPR), June 2018.
+
+3. Saining Xie, Chen Sun, Jonathan Huang, Zhuowen Tu, and Kevin Murphy. Rethinking Spatiotemporal Feature Learning:
+Speed-Accuracy Trade-offs in Video Classification. In The European Conference on Computer Vision (ECCV),
+Sept. 2018
+
+4. Du Tran, Heng Wang, Lorenzo Torresani, Jamie Ray, Yann LeCun, and Manohar Paluri. A Closer Look at Spatiotemporal
+Convolutions for Action Recognition. In The IEEE Conference on Computer Vision and Pattern Recognition (CVPR), June 2018
+
+5. Ji Lin, Chuang Gan, and Song Han. Temporal Shift Module for Efficient Video Understanding. In The IEEE International
+Conference on Computer Vision (ICCV), 2019
+
+6. Quanfu Fan, Chun-Fu (Ricarhd) Chen, Hilde Kuehne, Marco Pistoia, and David Cox. More Is Less: Learning Efficient
+Video Representations by Temporal Aggregation Modules. In Advances in Neural Information Processing Systems 33,
+2019.
