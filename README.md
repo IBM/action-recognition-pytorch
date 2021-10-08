@@ -89,10 +89,12 @@ python3 test.py --datadir /path/to/folder --threed_data \
 
 ## Models and Results
 
-We provided some pretrained models with `32` frames as input without temporal pooling.
+We provided some pretrained models with `32` frames as input without temporal pooling. 
 Those models can be evaluated with following command template, and appending additional configs.
 
 Note: you might need to change batch size based on your GPU memory.
+
+Models can be directly downloaded from the [asset](https://github.com/IBM/action-recognition-pytorch/releases/tag/weights-v0.1).
 
 ### Kinetics400
 ```bash
@@ -104,10 +106,10 @@ python3 test.py --groups 32 -e --frames_per_group 2 --without_t_stride --logdir 
 
 | Model | Top-1 Acc | Additional configs | 
 |-------|-----------| --- |
-| [I3D-ResNet-50-f32](https://ibm.box.com/v/K400-I3D-ResNet-50-f32) | 76.61% | --backbone_net i3d_resnet -d 50 | 
-| [TAM-ResNet-50-f32](https://ibm.box.com/v/K400-TAM-ResNet-50-f32) | 76.18% | --backbone_net resnet -d 50 --temporal_module_name TAM |
-| [I3D-ResNet-101-f32](https://ibm.box.com/v/K400-I3D-ResNet-101-f32) | 77.80% | --backbone_net i3d_resnet -d 101 |
-| [TAM-ResNet-101-f32](https://ibm.box.com/v/K400-TAM-ResNet-101-f32) | 77.61% | --backbone_net resnet -d 101 --temporal_module_name TAM |
+| [I3D-ResNet-50-f32](https://github.com/IBM/action-recognition-pytorch/releases/download/weights-v0.1/K400-I3D-ResNet-50-f32.pth.tar) | 76.61% | --backbone_net i3d_resnet -d 50 | 
+| [TAM-ResNet-50-f32](https://github.com/IBM/action-recognition-pytorch/releases/download/weights-v0.1/K400-TAM-ResNet-50-f32.pth.tar) | 76.18% | --backbone_net resnet -d 50 --temporal_module_name TAM |
+| [I3D-ResNet-101-f32](https://github.com/IBM/action-recognition-pytorch/releases/download/weights-v0.1/K400-I3D-ResNet-101-f32.pth.tar) | 77.80% | --backbone_net i3d_resnet -d 101 |
+| [TAM-ResNet-101-f32](https://github.com/IBM/action-recognition-pytorch/releases/download/weights-v0.1/K400-TAM-ResNet-101-f32.pth.tar) | 77.61% | --backbone_net resnet -d 101 --temporal_module_name TAM |
 
 ### Something-Something-V2
 ```bash
@@ -119,10 +121,10 @@ python3 test.py --groups 32 -e --frames_per_group 1 --without_t_stride --logdir 
 
 | Model | Top-1 Acc | Additional configs |
 |-------|-----------|--|
-| [I3D-ResNet-50-f32](https://ibm.box.com/v/SSV2-I3D-ResNet-50-f32) | 62.84% | --backbone_net i3d_resnet -d 50 |
-| [TAM-ResNet-50-f32](https://ibm.box.com/v/SSV2-TAM-ResNet-50-f32) | 63.83% | --backbone_net resnet -d 50 --temporal_module_name TAM |
-| [I3D-ResNet-101-f32](https://ibm.box.com/v/SSV2-I3D-ResNet-101-f32) | 64.29% | --backbone_net i3d_resnet -d 101 |
-| [TAM-ResNet-101-f32](https://ibm.box.com/v/SSV2-TAM-ResNet-101-f32) | 65.32% | --backbone_net resnet -d 101 --temporal_module_name TAM |
+| [I3D-ResNet-50-f32](https://github.com/IBM/action-recognition-pytorch/releases/download/weights-v0.1/SSV2-I3D-ResNet-50-f32.pth.tar) | 62.84% | --backbone_net i3d_resnet -d 50 |
+| [TAM-ResNet-50-f32](https://github.com/IBM/action-recognition-pytorch/releases/download/weights-v0.1/SSV2-TAM-ResNet-50-f32.pth.tar) | 63.83% | --backbone_net resnet -d 50 --temporal_module_name TAM |
+| [I3D-ResNet-101-f32](https://github.com/IBM/action-recognition-pytorch/releases/download/weights-v0.1/SSV2-I3D-ResNet-101-f32.pth.tar) | 64.29% | --backbone_net i3d_resnet -d 101 |
+| [TAM-ResNet-101-f32](https://github.com/IBM/action-recognition-pytorch/releases/download/weights-v0.1/SSV2-TAM-ResNet-101-f32.pth.tar) | 65.32% | --backbone_net resnet -d 101 --temporal_module_name TAM |
 
 
 ### Results on Mini-Datasets
